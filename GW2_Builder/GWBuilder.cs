@@ -168,7 +168,7 @@ namespace GW2_Builder
         {
             int[] preHolder = { 0, 0, 0, 0 };
             int prefixSel = 0;
-            int tempArmorClass = armorCode + ((rarityArmor[0] - 1) * 3);
+            int tempArmorClass = armorCode + ((rarityArmor[piece] - 1) * 3);
             ArmorDataClass.SavedArmorData tempArmorRef;
 
             switch (piece)
