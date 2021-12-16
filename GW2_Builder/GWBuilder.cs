@@ -149,6 +149,10 @@ namespace GW2_Builder
             RecalculateValues();
         }
 
+        /// <summary>
+        /// <c><b>RecalculateValues</b></c> is run every time the user changes a value in the program.
+        /// It reads all selected values, and calculates the resulting attributes.
+        /// </summary>
         public void RecalculateValues()
         {
             int defTotal;
@@ -164,6 +168,17 @@ namespace GW2_Builder
             ReloadLabels(RecalAtt, defTotal);
         }
 
+        /// <summary>
+        /// <c><b>AttSender</b></c> receives the active Attributes object, with an armor code,
+        /// determines which prefix is selected, adds the values to the attributes object, and
+        /// returns it to <c><b>RecalculateValues()</b></c>
+        /// <list type="bullet">
+        /// <item><description><para><em><b>piece</b> The armor slot being examined (i.e. head, 
+        /// chest, etc...)</em></para></description></item>
+        /// <item><description><para><em><b>attSend</b> The active Attributes class object. It will
+        /// contain all the added attributes.</em></para></description></item>
+        /// </list>
+        /// </summary>
         private void AttSender(int piece, Attributes attSend)
         {
             int[] preHolder = { 0, 0, 0, 0 };
@@ -237,6 +252,16 @@ namespace GW2_Builder
             }
         }
 
+        /// <summary>
+        /// <c><b>ReloadLables</b></c> will take the values from the active Attributes class
+        /// object, and load them into the matching label objects of the GUI.
+        /// <list type="bullet">
+        /// <item><description><para><em><b>Values</b> The active Attributes class object. It will
+        /// contain all added values, and calculated totals.</em></para></description></item>
+        /// <item><description><para><em><b>defense</b> The total armor defense value, stored
+        /// separatly from the other values.</em></para></description></item>
+        /// </list>
+        /// </summary>
         private void ReloadLabels(Attributes Values, int defense)
         {
             PowerValueLabel.Text = Values.powerTotal.ToString();
